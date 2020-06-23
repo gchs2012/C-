@@ -161,3 +161,17 @@ int main(int argc, char const *argv[])
 
     return 0;
 }
+
+
+extern "C"
+{
+    #include "xxx.h"
+    ...
+}
+
+#include "xxx.h"
+extern “C”
+{
+    ...
+}
+
