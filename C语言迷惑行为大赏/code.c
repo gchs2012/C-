@@ -161,3 +161,29 @@ int main(int argc, char const *argv[])
 
     return 0;
 }
+
+
+#include <VXWORKS.H>
+#include <KERNELLIB.H>
+#include <SEMLIB.H>
+#include <INTLIB.H>
+#include <TASKLIB.H>
+#include <MSGQLIB.H>
+#include <STDARG.H>
+#include <FIOLIB.H>
+#include <STDIO.H>
+#include <STDLIB.H>
+#include <CTYPE.H>
+#include <STRING.H>
+#include <ERRNOLIB.H>
+#include <TIMERS.H>
+#include <MEMLIB.H>
+#include <TIME.H>
+#include <WDLIB.H>
+#include <SYSLIB.H>
+#include <TASKHOOKLIB.H>
+#include <REBOOTLIB.H>
+...
+typedef unsigned short WORD;
+...
+
