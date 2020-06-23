@@ -163,15 +163,38 @@ int main(int argc, char const *argv[])
 }
 
 
-extern "C"
-{
-    #include "xxx.h"
+// .h 文件
+namespace mynamespace {
+
+// 所有声明都置于命名空间中
+// 注意不要使用缩进
+class MyClass {
+    public:
+    ...
+    void Foo();
+};
+
+} // namespace mynamespace
+
+
+
+// .cpp 文件
+namespace mynamespace {
+
+// 函数定义都置于命名空间中
+void MyClass::Foo() {
     ...
 }
 
-#include "xxx.h"
-extern “C”
-{
-    ...
-}
+} // namespace mynamespace
 
+
+#include "a.h"
+
+DEFINE_FLAG(bool, someflag, false, "dummy flag");
+
+namespace a {
+
+...code for a...                // 左对齐
+
+} // namespace a
