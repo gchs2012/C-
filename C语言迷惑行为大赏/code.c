@@ -161,16 +161,3 @@ int main(int argc, char const *argv[])
 
     return 0;
 }
-
-
-#include "foo/public/fooserver.h" // 优先位置
-
-#include <sys/types.h>
-#include <unistd.h>
-
-#include <hash_map>
-#include <vector>
-
-#include "base/basictypes.h"
-#include "base/commandlineflags.h"
-#include "foo/public/bar.h"
