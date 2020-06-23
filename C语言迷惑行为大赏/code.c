@@ -163,38 +163,23 @@ int main(int argc, char const *argv[])
 }
 
 
-// .h 文件
-namespace mynamespace {
-
-// 所有声明都置于命名空间中
-// 注意不要使用缩进
-class MyClass {
-    public:
-    ...
-    void Foo();
-};
-
-} // namespace mynamespace
+// 禁止 —— 污染命名空间
+using namespace foo;
 
 
+// 在 .cc 中使用别名缩短常用的命名空间
+namespace baz = ::foo::bar::baz;
 
-// .cpp 文件
-namespace mynamespace {
 
-// 函数定义都置于命名空间中
-void MyClass::Foo() {
-    ...
+// 在 .h 中使用别名缩短常用的命名空间
+namespace librarian {
+namespace impl {  // 仅限内部使用
+namespace sidetable = ::pipeline_diagnostics::sidetable;
+}  // namespace impl
+
+inline void my_inline_function() {
+  // 限制在一个函数中的命名空间别名
+  namespace baz = ::foo::bar::baz;
+  ...
 }
-
-} // namespace mynamespace
-
-
-#include "a.h"
-
-DEFINE_FLAG(bool, someflag, false, "dummy flag");
-
-namespace a {
-
-...code for a...                // 左对齐
-
-} // namespace a
+}  // namespace librarian
